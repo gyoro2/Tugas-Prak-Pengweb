@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menginput Data Dalam Tabel</title>
+</head>
+<body>
+    <h1>Menginput Data Dalam Tabel</h1>
+    <form>
+        <label for="Nama">Nama :</label>
+        <input type="text" id="Nama"><br>
+
+        <label for="NIM">NIM :</label>
+        <input type="text" id="NIM"><br>
+
+        <label for="Tempat Tinggal">Tempat Tinggal:</label>
+        <input type="text" id="Tempat Tinggal"><br>
+
+        <label for="Waifu">Waifu:</label>
+        <input type="text" id="Waifu"><br>
+
+        <label for="Power">Power:</label>
+        <input type="text" id="Power"><br>
+
+        <button type="button" onclick="createTable()">Masukan Data</button>
+    </form>
+    <style>
+        th, td {
+            padding: 10px;
+        }
+    </style>
+    <br>
+    <br>
+    <table id="Tabel">
+        <tr>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Tempat Tinggal</th>
+            <th>Waifu</th>
+            <th>Power</th>
+        </tr>
+    </table>
+
+    <script>
+        function createTable() {
+            var table = document.getElementById("Tabel");
+
+            var row = table.insertRow();
+            var cell1 = row.insertCell();
+            var cell2 = row.insertCell();
+            var cell3 = row.insertCell();
+            var cell4 = row.insertCell();
+            var cell5 = row.insertCell();
+
+            cell1.innerHTML = document.getElementById("Nama").value;
+            cell2.innerHTML = document.getElementById("NIM").value;
+            cell3.innerHTML = document.getElementById("Tempat Tinggal").value;
+            cell4.innerHTML = document.getElementById("Waifu").value;
+            cell5.innerHTML = document.getElementById("Power").value;
+        }
+    </script>
+</body>
+</html>

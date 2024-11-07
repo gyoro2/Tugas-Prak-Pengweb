@@ -1,0 +1,33 @@
+nav {
+    background-color: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: right;
+    margin-right: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    color: red;
+}
+
+
+.separator {
+    height: 10px;
+    background-color: gray;
+    margin-bottom: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding: 10px;
+}

@@ -6,7 +6,7 @@ function validateUsername() {
         usernameError.textContent = "Username must be at least 5 characters long.";
         return false;
     } else {
-        usernameError.textContent = ""; // Clear the error message
+        usernameError.textContent = "";
         return true;
     }
 }
@@ -28,14 +28,35 @@ function validateEmail() {
 function validatePassword() {
     const password = document.getElementById("password").value;
     const passwordError = document.getElementById("password-error");
+    const passwordStrength = document.getElementById("password-strength");
 
-    if (password.length < 8) {
-        passwordError.textContent = "Password must be at least 8 characters long.";
-        return false;
-    } else {
-        passwordError.textContent = "";
-        return true;
+    // Reset error message
+    passwordError.textContent = "";
+
+    // Check password strength
+    let strength = 0;
+    if (password.length >= 8) strength++; // Minimal panjang
+    if (/[A-Z]/.test(password)) strength++; // Huruf besar
+    if (/[0-9]/.test(password)) strength++; // Angka
+    if (/[\W_]/.test(password)) strength++; // Karakter khusus
+
+    // Tampilkan tingkat kekuatan
+    if (strength === 0) {
+        passwordStrength.textContent = "";
+        passwordStrength.className = "strength-message";
+    } else if (strength === 1) {
+        passwordStrength.textContent = "Weak";
+        passwordStrength.className = "strength-message weak";
+    } else if (strength === 2) {
+        passwordStrength.textContent = "Medium";
+        passwordStrength.className = "strength-message medium";
+    } else if (strength >= 3) {
+        passwordStrength.textContent = "Strong";
+        passwordStrength.className = "strength-message strong";
     }
+
+    // Return false jika tidak memenuhi minimal panjang
+    return password.length >= 8;
 }
 
 function validateConfirmPassword() {
